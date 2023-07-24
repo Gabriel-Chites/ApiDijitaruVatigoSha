@@ -11,13 +11,5 @@ public class ApproveHours
     [Required]
     public int RecordId { get; set; }
 
-    public virtual IList<TimeRecording> Records { get; set; }
 
-    public virtual IList<Collaborator> Collaborators { get; set; }
-
-    public ApproveHours()
-    {
-        Records = new List<TimeRecording>();
-        Collaborators = new List<Collaborator>();
-    }
 }

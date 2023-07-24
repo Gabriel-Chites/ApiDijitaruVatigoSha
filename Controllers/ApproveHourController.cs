@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using TreinandoCodinDojo.Data;
 using TreinandoCodinDojo.Dto_s.ApproveHourDto;
+using TreinandoCodinDojo.Dto_s.TimeRecordingDto;
 
 namespace TreinandoCodinDojo.Controllers;
 
@@ -36,5 +37,12 @@ public class ApproveHourController : ControllerBase
         _context.SaveChanges();
 
         return Ok();
+    }
+
+    [HttpGet]
+
+    public IEnumerable<ReadTimeRecordingDto> readApprovedHours()
+    {
+        return _mapper.Map<List<ReadTimeRecordingDto>>(_context.Records.Where(r => r.IsApproved == true));
     }
 }

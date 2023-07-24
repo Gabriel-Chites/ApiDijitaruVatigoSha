@@ -30,6 +30,8 @@ public class ProjectController: ControllerBase
         return Ok();
     }
 
+
+
     [HttpPost("AddCollaboratorToProject/{id}")]
     public IActionResult AddCollaboratorToProject(int id, [FromBody] int collaboratorId)
     {
@@ -44,6 +46,21 @@ public class ProjectController: ControllerBase
 
         return Ok();
     }
+
+    //[HttpPost("AddApproverToProject/{id}")]
+    //public IActionResult AddApproverToProject(int id, [FromBody] int collaboratorId)
+    //{
+    //    var project = _context.Projects.FirstOrDefault(p => p.id == id);
+    //    if (project == null) return NotFound();
+
+    //    var collaborator = _context.Collaborators.FirstOrDefault(c => c.Id == collaboratorId);
+    //    if (collaborator == null || collaborator.Role == Models.Enums.RoleType.Normal) return BadRequest();
+
+    //    project.Approvers.Add(collaborator);
+    //    _context.SaveChanges();
+
+    //    return Ok();
+    //}
 
     [HttpGet]
     public IEnumerable<ReadProjectDto> GetProjects()
